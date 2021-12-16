@@ -2,8 +2,8 @@
 
 
 class Array{
-    #items=[]
-    #newArray=[]
+    items=[]
+    newArray=[]
 
 
  constructor(items){
