@@ -3,15 +3,15 @@
 
 class Array{
     items=[]
-    newArray=[]
+    newItems=[]
 
 
  constructor(items){
   this.items=items
  }
 
-setItems(array){
-   this.items=array
+setItems(items){
+   this.items=items
 }
 
 getItems(){
@@ -25,32 +25,32 @@ getItems(){
   
  popItems(){
   for(let i=0; i<(this.items.length); i++){
-    this.newArray[i]=this.items[i];
+    this.newItems[i]=this.items[i];
   }
-   return this.newArray;
+   return this.newItems;
 }
 
 shiftItems(){
         for(let i=1; i<=(this.items.length)-1; i++){
-         this. newArray[i-1]=this.items[i];
+         this. newItems[i-1]=this.items[i];
         }
-       return this.newArray;
+       return this.newItems;
 }
 
- unshiftItems(member){
-    return [member,...this.items]
+ unshiftItems(item){
+    return [item,...this.items]
 }
 
 
-insertItem(member,index){
+insertItem(item,index){
   for(let i=0; i<(this.items.length); i++){
       if(index===i){
-        this.items[i]=member
+        this.items[i]=item
       }
-       this.newArray[i]=this.items[i]
+       this.newItems[i]=this.items[i]
 
   }
-  return this.newArray
+  return this.newItems
 }
 
 
