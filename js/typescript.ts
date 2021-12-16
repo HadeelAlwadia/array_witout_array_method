@@ -1,92 +1,106 @@
 
 
 
+type T=string |number | Array <string> |object |undefined |boolean|null
 
 
-class Array1{
-    private  items:Array<any>;
-   
-   constructor(members:Array<any>){
-       this.items=members
-   }
-   setItems(members:Array<any>):void{
-       this.items=members;
-   
-   }
-   getItems():Array<any>{
-       return this.items;
-   }
-   
-     pushItem(item:any):Array<any>{
-       return [...this.items,item]
-     }
-   
-      unshiftItem(item:any):Array<any>{
-       return [item,...this.items]
-   }
-   
-       popItem():Array<any>{
-           let newArray:Array<any>=[]
-           for(let i:number=0; i<(this.items.length)-2; i++){
-             newArray[i]=this.items[i];
-           }
-          return newArray;
-   }
-   
-   shiftItem():Array<any>{
-     let newArray:Array<any>=[]
-           for(let i:number=1; i<(this.items.length)-1; i++){
-             newArray[i-1]=this.items[i];
-           }
-          return newArray;
-   }
-   
-     insertItem(member:any,index:number):Array<any>{
-         let originArray:Array<any>=this.getItems()
-   
-         let newArray:Array<any>=[]
-   
-           for(let i:number=0; i<(originArray.length)-1; i++){
-               if(index===i){
-                originArray[i]=member
-               }
-                  newArray[i]=originArray[i]
-   
-           }
-          return newArray
-   }
-   
-   
-   }
-   
-   
-   let array1=new Array1(['apple','panana']);
-         console.log(array1.getItems()) 
-         console.log(array1.pushItem('poteto'))
-         console.log(array1.shiftItem())
-         console.log(array1.unshiftItem('salt'))
-         console.log(array1.insertItem('egg',2))
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+class Array2{
+  private  items:Array<T>=[]; 
+  private  newItems:Array<T>=[];
+
+
+ constructor(items:Array<T>){
+  this.items=items
+ }
+
+setItems(array:Array<T>):void{  // function for setItems
+
+   this.items=array
+}
+
+getItems():Array<T>{ // function for getItems
+  return this.items;
+}
+
+
+ pushItems(item:T):Array<T>{ // function for pushItems
+    return [...this.items,item]
+  }
+  
+ popItems():Array<T>{   //function for  popItems
+  for(let i:number=0; i<(this.items.length); i++){
+    this.newItems[i]=this.items[i];
+  }
+   return this.newItems;
+}
+
+shiftItems():Array<T>{ //function for shiftItems
+        for(let i:number=1; i<=(this.items.length)-1; i++){
+         this. newItems[i-1]=this.items[i];
+        }
+       return this.newItems;
+}
+
+ unshiftItems(item:T):Array<T>{ //function for unshiftItems
+    return [item,...this.items]
+}
+
+
+insertItem(item:T,index:number):Array<T>{ //function for insertItem
+  for(let i:number=0; i<(this.items.length); i++){
+      if(index===i){
+        this.items[i]=item
+      }
+       this.newItems[i]=this.items[i]
+
+  }
+  return this.newItems
+}
+
+
+ 
+findItem(item:T):T{  //function for findItem
+  let chooseItem:T;
+  for(let i:number=0; i<(this.items.length); i++){
+        if(item===this.items[i]){
+          chooseItem=item;
+        }
+  }
+ return chooseItem;
+
+ }
+
+
+
+}
+
+let array2=new Array2([5,6,7])
+     array2.setItems([4,'hadeel'])
+      console.log (array2.getItems())
+      console.log(array2.pushItems([9,9]))
+      console.log(array2.popItems())
+      console.log(array2.shiftItems())
+      console.log(array2.unshiftItems('t'))
+      console.log(array2.insertItem('t',2))
+      console.log(array2.findItem('hadeel'))
    
    
    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
    
                        
    

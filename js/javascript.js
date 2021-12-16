@@ -1,67 +1,85 @@
 
+
+
 class Array{
-   #Items;
- 
- constructor(Items){
-     this.#Items=Items
+    #items=[]
+    #newArray=[]
+
+
+ constructor(items){
+  this.items=items
  }
- setItems(Items){
-     this.#Items=Items;
+
+setItems(array){
+   this.items=array
+}
+
+getItems(){
+  return this.items;
+}
+
+
+ pushItems(item){
+    return [...this.items,item]
+  }
+  
+ popItems(){
+  for(let i=0; i<(this.items.length); i++){
+    this.newArray[i]=this.items[i];
+  }
+   return this.newArray;
+}
+
+shiftItems(){
+        for(let i=1; i<=(this.items.length)-1; i++){
+         this. newArray[i-1]=this.items[i];
+        }
+       return this.newArray;
+}
+
+ unshiftItems(member){
+    return [member,...this.items]
+}
+
+
+insertItem(member,index){
+  for(let i=0; i<(this.items.length); i++){
+      if(index===i){
+        this.items[i]=member
+      }
+       this.newArray[i]=this.items[i]
+
+  }
+  return this.newArray
+}
+
+
  
+findItem(item){
+  let chooseItem;
+  for(let i=0; i<(this.items.length); i++){
+        if(item===this.items[i]){
+          chooseItem=item
+        }
+  }
+ return chooseItem;
+
  }
- getItems(){
-     return this.#Items;
- }
- 
-   pushItem(Item){
-     return [...this.#Items,Item]
-   }
- 
-    unshiftItem(Item){
-     return [Item,...this.#Items]
- }
- 
-     popItem(){
-         let newArray=[]
-         for(let i=0; i<(this.#Items.length)-2; i++){
-           newArray[i]=this.Items[i];
-         }
-        return newArray
- }
- 
- shiftItem(){
-   let newArray=[]
-         for(let i=1; i<(this.#Items.length)-1; i++){
-           newArray[i-1]=this.Items[i];
-         }
-        return newArray;
- }
- 
-   insertItem(Item,index){
-       let originArray=this.getItems()
- 
-       let newArray=[]
- 
-         for(let i=0; i<(originArray.length)-1; i++){
-             if(index===i){
-              originArray[i]=Item
-             }
-                newArray[i]=originArray[i]
- 
-         }
-        return newArray
- }
- 
- 
- }
- 
- 
- let array=new Array(['apple','panana']);
-       console.log(array1.getItems()) 
-       console.log(array1.pushItem('poteto'))
-       console.log(array1.shiftItem())
-       console.log(array1.unshiftItem('salt'))
-       console.log(array1.insertItem('egg',2))
- 
- 
- 
+
+
+
+}
+
+let array=new Array([5,6,7])
+     array.setItems([4,'hadeel'])
+      console.log (array.getItems())
+      console.log(array.pushItems([9,9]))
+      console.log(array.popItems())
+      console.log(array.shiftItems())
+      console.log(array.unshiftItems('t'))
+      console.log(array.insertItem('t',2))
+      console.log(array.findItem('hadeel'))
+   
+   
+   
+   
